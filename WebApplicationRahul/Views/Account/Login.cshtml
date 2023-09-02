@@ -1,0 +1,29 @@
+﻿@model LoginViewModel;
+@{
+    ViewData["title"] = "Login";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/login.css" />
+<div class="form_container" >
+    <form method="post">
+        <div class="form-group mb-3">
+            <label for="email">Email address</label>
+            <input asp-for="Email" type="email" class="form-control" id="email"  placeholder="Enter email">
+            <span class="text-danger">@ViewData["EmailError"]</span>
+        </div>
+        <div class="form-group mb-5">
+            <label for="password">Password</label>
+            <input asp-for="Password" type="password" class="form-control" id="" placeholder="Password">
+            <span class="text-red">@ViewData["PasswordError"]</span>
+        </div>
+ 
+       
+        <button type="submit" asp-controller="Account" asp-action="Login" class="btn btn-primary">Submit</button>
+        <div>
+
+            <a href="/Account/Register">No Account ? Register Here</a>
+        </div>
+     
+        
+    </form>
+</div>

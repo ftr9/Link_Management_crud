@@ -1,0 +1,22 @@
+﻿@model AddLinkModel
+
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Link Name</label>
+        <input asp-for="Name" type="text" class="form-control" id="Name"  placeholder="Enter the Name of Link" />
+    </div>
+
+    <div class="form-group">
+        <label for="Link">Link</label>
+        <input asp-for="url" type="url" class="form-control" id="Link" placeholder="Enter the Url" />
+    </div>
+
+    <div class="form-group">
+        <label for="Purpose">Purpose</label>
+        <input type="text" asp-for="purpose" class="form-control" id="Purpose" placeholder="Enter the Purpose of Link" />
+
+    </div>
+    
+    <button type="submit" asp-controller="Link" asp-action="Add" class="btn btn-primary">Submit</button>
+</form>

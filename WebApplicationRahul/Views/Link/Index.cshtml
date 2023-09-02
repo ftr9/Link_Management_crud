@@ -1,0 +1,51 @@
+﻿@model User
+
+@{
+    ViewData["title"] = "Links";
+}
+
+<h1>Your Important Links</h1>
+<div class="mb-5" >
+    <a href="/Link/Add">
+        <button type="button" class="btn btn-primary">Add Link</button>
+    </a>
+    <form method="post" >
+        <button type="submit" asp-controller="Account" asp-action="Logout" class="btn btn-danger">Logout</button>
+    </form>
+ 
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">S.N</th>
+            <th scope="col">Name</th>
+            <th scope="col">Link</th>
+            <th scope="col">Purpose</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var link in Model.Links)
+        {
+            <tr>
+                <th scope="row">@link.Id</th>
+                <td>@link.Name</td>
+                <td>@link.url</td>
+                <td>@link.purpose</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="/Link/Details?linkId=@link.Id" ><button type="button" class="btn text-white btn-warning">Update</button></a>                    
+                    </div>
+                </td>
+            </tr>
+        }
+       
+     
+    </tbody>
+</table>
+
+

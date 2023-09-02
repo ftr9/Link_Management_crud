@@ -1,0 +1,34 @@
+﻿@model User;
+
+@{
+    ViewData["title"] = "Login";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/login.css" />
+<div class="form_container">
+    <form method="post">
+        <div class="form-group mb-3">
+            <label for="Name">Name</label>
+            <input asp-for="Name" type="text" class="form-control" id="Name" placeholder="Enter your name">
+            <span class="text-danger" asp-validation-for="Name" ></span>
+        </div>
+        <div class="form-group mb-3">
+            <label for="email">Email address</label>
+            <input asp-for="Email" type="email" class="form-control" id="email" placeholder="Enter email">
+            <span class="text-danger" asp-validation-for="Email"></span>
+            <span class="text-danger">@ViewData["EmailAlreadyPresent"]</span>
+        </div>
+        <div class="form-group mb-5">
+            <label for="password">Password</label>
+            <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Enter Your Password">
+            <span class="text-danger" asp-validation-for="Password"></span>
+        </div>
+        
+        
+        <button type="submit" asp-controller="Account" asp-action="Register" class="btn btn-primary">Sign in </button>
+        <div>
+            <a href="/Account/Login">Already have an Account ?</a>
+        </div>
+        
+    </form>
+</div>
